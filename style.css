@@ -3,3 +3,34 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    padding: 10px;
+}
+
+p{
+    padding: 5px;
+}
+
+input{
+    float: right;
+}
+input[type=submit]{
+    background-color: rgb(127, 255, 0);
+    padding: 5px;
+}
+
+.contenu{
+    background-color: rgb(250, 235, 215);
+    width: 550px;
+    padding: 5px;
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
