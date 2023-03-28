@@ -43,6 +43,21 @@ input[type=submit]{
     padding: 5px;
 }
 
+table{
+    padding: 20px 0;
+}
+
+th, td{
+    width: 100px;
+    text-align: center;
+}
+
+thead, tbody, td, th{
+    padding: 5px;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
 .contenu{
     background-color: rgb(250, 235, 215);
     width: 550px;

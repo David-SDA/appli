@@ -19,7 +19,7 @@
                 echo "<p>Aucun produit en session...</p>";
             }
             else{
-                echo "<table>",
+                echo "<table class=\"contenu\">",
                         "<thead>",
                             "<tr>",
                                 "<th>#</th>",
