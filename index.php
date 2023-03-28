@@ -10,6 +10,7 @@
         <header>
             <a href="index.php">Accueil</a>
             <a href="recap.php">Récapitulatif</a>
+            <p class="nbProduit"><i>Nombre de produits : <span>0</span></i></p>
         </header>
         <div class="contenu">   
             <h1>Ajouter un produit</h1>
