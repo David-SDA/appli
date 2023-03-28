@@ -9,6 +9,14 @@
 
         if($name && $price && $qtt){
             
+            $product = [
+                "name" => $name,
+                "price" => $price,
+                "qtt" => $qtt,
+                "total" => $price*$qtt
+            ];
+
+            $_SESSION['products'][] = $product;
         }
     }
 
