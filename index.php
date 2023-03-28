@@ -7,6 +7,10 @@
         <title>Ajout produit</title>
     </head>
     <body>
+        <header>
+            <a href="index.php">Accueil</a>
+            <a href="recap.php">Récapitulatif</a>
+        </header>
         <div class="contenu">   
             <h1>Ajouter un produit</h1>
             <form action="traitement.php" method="post">
