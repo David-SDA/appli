@@ -44,7 +44,7 @@
                 $totalGeneral = 0;
                 foreach($_SESSION['products'] as $index => $product){
                     echo "<tr>",
-                            "<td>".$index."</td>",
+                            "<td><a href=\"traitement.php?action=delete&index=$index\">❌</a>".$index."</td>",
                             "<td>".$product['name']."</td>",
                             "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€"."</td>",
                             "<td>".$product['qtt']."</td>",

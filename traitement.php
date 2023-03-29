@@ -4,7 +4,7 @@
     if(isset($_GET['action'])){
 
         switch($_GET['action']){
-            //* ----------------AJOUTER UN PRODUIT------------------
+            //----------------AJOUTER UN PRODUIT------------------
             case "add" :
                 if(isset($_POST['submit'])){
 
@@ -29,6 +29,24 @@
                         $_SESSION['message'] = "Échec !";
                     }
                 }
+            
+            //----------------SUPPRIMER UN PRODUIT------------------
+            case "delete" :
+                unset($_SESSION['products'][$_GET['index']]);
+                $_SESSION['products'] = array_values($_SESSION['products']);
+            
+            //----------------VIDER LE PANIER------------------
+            case "clear" :
+            
+            //----------------AUGMENTER LA QUANTITÉ D'UN PRODUIT------------------
+            case "up-qtt" :
+            
+            //----------------DIMINUER LA QUANTITÉ D'UN PRODUIT------------------
+            case "down-qtt" :
+
+            //----------------AFFICHER LE DÉTAIL D'UN PRODUIT------------------
+            case "detail" :
+
         }
     }
 
