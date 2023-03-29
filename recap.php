@@ -30,6 +30,7 @@
                 echo "<p>Aucun produit en session...</p>";
             }
             else{
+                echo "<a href=\"traitement.php?action=clear\">Vider le panier</a>";
                 echo "<table class=\"contenu\">",
                         "<thead>",
                             "<tr>",

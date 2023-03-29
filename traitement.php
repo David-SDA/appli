@@ -29,14 +29,20 @@
                         $_SESSION['message'] = "Échec !";
                     }
                 }
+                break;
             
             //----------------SUPPRIMER UN PRODUIT------------------
             case "delete" :
                 unset($_SESSION['products'][$_GET['index']]);
                 $_SESSION['products'] = array_values($_SESSION['products']);
+                break;
             
             //----------------VIDER LE PANIER------------------
             case "clear" :
+                foreach($_SESSION['products'] as $index=>$produit){
+                    unset($_SESSION['products'][$index]);
+                }
+                break;
             
             //----------------AUGMENTER LA QUANTITÉ D'UN PRODUIT------------------
             case "up-qtt" :
