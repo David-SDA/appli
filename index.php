@@ -50,6 +50,16 @@
                     <input type="submit" name="submit" value="Ajouter le produit">
                 </p>
             </form>
+            <p>État du dernier ajout : 
+                <?php
+                    if((!isset($_SESSION['message']) || empty($_SESSION['message']))){
+                        echo "";
+                    }
+                    else{
+                        echo $_SESSION['message'];
+                    }
+                ?>
+            </p>
         </div>
     </body>
 </html>

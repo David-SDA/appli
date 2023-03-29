@@ -17,7 +17,12 @@
             ];
 
             $_SESSION['products'][] = $product;
+            $_SESSION['message'] = "Réussi !";
         }
+        else{
+            $_SESSION['message'] = "Échec !";
+        }
+
     }
 
     header("Location:index.php");
