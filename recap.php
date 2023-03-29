@@ -13,7 +13,17 @@
         <header>
             <a href="index.php">Accueil</a>
             <a href="recap.php">Récapitulatif</a>
-            <p class="nbProduit"><i>Nombre de produits : <span>0</span></i></p>
+            <p class="nbProduit"><i>Nombre de produits : 
+                <span>
+                <?php
+                    if((!isset($_SESSION['products']) || empty($_SESSION['products']))){
+                        echo "0";
+                    }
+                    else{
+                        echo count($_SESSION['products']);
+                    }
+                ?>
+                </span></i></p>
         </header>
         <?php
             if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
