@@ -29,12 +29,14 @@
                         $_SESSION['message'] = "Échec !";
                     }
                 }
+                header("Location:index.php");
                 break;
             
             //----------------SUPPRIMER UN PRODUIT------------------
             case "delete" :
                 unset($_SESSION['products'][$_GET['index']]);
                 $_SESSION['products'] = array_values($_SESSION['products']);
+                header("Location:recap.php");
                 break;
             
             //----------------VIDER LE PANIER------------------
@@ -42,18 +44,34 @@
                 foreach($_SESSION['products'] as $index=>$produit){
                     unset($_SESSION['products'][$index]);
                 }
+                header("Location:index.php");
                 break;
             
             //----------------AUGMENTER LA QUANTITÉ D'UN PRODUIT------------------
             case "up-qtt" :
+                $_SESSION['products'][$_GET['index']]['qtt']++;
+                $_SESSION['products'][$_GET['index']]['total'] += $_SESSION['products'][$_GET['index']]['price'];
+                $totalGeneral += $_SESSION['products'][$_GET['index']]['price'];
+                header("Location:recap.php");
+                break;
             
             //----------------DIMINUER LA QUANTITÉ D'UN PRODUIT------------------
             case "down-qtt" :
+                if($_SESSION['products'][$_GET['index']]['qtt'] == 1){
+                    unset($_SESSION['products'][$_GET['index']]);
+                    $_SESSION['products'] = array_values($_SESSION['products']);
+                    header("Location:recap.php");
+                }
+                else{
+                    $_SESSION['products'][$_GET['index']]['qtt']--;
+                    $_SESSION['products'][$_GET['index']]['total'] -= $_SESSION['products'][$_GET['index']]['price'];
+                    $totalGeneral -= $_SESSION['products'][$_GET['index']]['price'];
+                    header("Location:recap.php");
+                }
+                break;
 
             //----------------AFFICHER LE DÉTAIL D'UN PRODUIT------------------
             case "detail" :
 
         }
     }
-
-    header("Location:index.php");

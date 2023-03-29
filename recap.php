@@ -48,7 +48,7 @@
                             "<td><a href=\"traitement.php?action=delete&index=$index\">❌</a>".$index."</td>",
                             "<td>".$product['name']."</td>",
                             "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€"."</td>",
-                            "<td>".$product['qtt']."</td>",
+                            "<td><a href=\"traitement.php?action=down-qtt&index=$index\">- </a>".$product['qtt']."<a href=\"traitement.php?action=up-qtt&index=$index\"> +</a></td>",
                             "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€"."</td>",
                         "</tr>";
                     $totalGeneral+= $product['total'];
