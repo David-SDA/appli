@@ -6,11 +6,11 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    color: #fff;
 }
 
 header{
     background-color: #313846;
-    color: rgb(255, 255, 255);
     height: 60px;
     display: flex;
     justify-content: center;
@@ -46,16 +46,27 @@ p{
     padding: 5px;
 }
 
+form{
+    margin: 5px;
+}
+
+form p{
+    width: 100%;
+    display: inline-block;
+}
+
 label{
     display: flex;
     flex-direction: column;
 }
 
-input{
-    float: right;
+input[type=text], input[type=number], textarea{
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 input[type=submit]{
-    background-color: rgb(127, 255, 0);
+    background-color: #576B91;
     padding: 5px;
 }
 
@@ -92,12 +103,18 @@ img{
 }
 
 .contenu{
-    background-color: rgb(250, 235, 215);
-    width: 600px;
+    background-color: #576B91;
+    width: 700px;
     padding: 5px;
-    margin: 20px auto 0 auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+                rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                rgba(0, 0, 0, 0.12) 0px 4px 6px,
+                rgba(0, 0, 0, 0.17) 0px 12px 13px,
+                rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
