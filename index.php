@@ -16,13 +16,16 @@
             <p class="nbProduit"><i>Nombre de produits : 
                 <span>
                 <?php
+                    $nombreProduits = 0;
                     /* Si on n'a pas de variable de session rassemblant les produits, ou bien si il est vide */
                     if((!isset($_SESSION['products']) || empty($_SESSION['products']))){
-                        echo "0"; // On affiche qu'on a bien aucun produits
+                        echo $nombreProduits; // On affiche qu'on a bien aucun produits
                     }
                     else{ // Sinon
-                        /* à changer, ça doit être le nombre total de quantité et non de produit uniques */
-                        echo count($_SESSION['products']); // On affiche le nombre de produits
+                        foreach($_SESSION['products'] as $index => $produit){ // Pour chaque produit
+                            $nombreProduits += $produit['qtt']; // On ajoute sa quantité au nombre de produits
+                        } 
+                        echo $nombreProduits; // On affiche le nombre de produits
                     }
                 ?>
                 </span></i></p>
