@@ -5,35 +5,33 @@
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 header{
-    background-color: rgb(225, 193, 110);
-    height: 40px;
+    background-color: #313846;
+    color: rgb(255, 255, 255);
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 header a{
-    height: 100%;
-    text-align: center;
-    margin-left: 50px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
     padding: 10px;
     text-decoration: none;
-    font-size: 20px;
 }
 header a:hover{
-    background-color: rgb(0, 0, 0);
-    color : rgb(255, 255, 255);
+    background-color: #917B49;
 }
 
 a{
-    color: blue;
     text-decoration: none;
-}
-a:visited{
-    color: blue;
 }
 
 button{
@@ -88,8 +86,9 @@ img{
 }
 
 .nbProduit{
-    margin-left: auto;
-    margin-right: 20px;
+    position: absolute;
+    right: 25px;
+    font-size: 1.17em;
 }
 
 .contenu{
