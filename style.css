@@ -29,7 +29,15 @@ header a:hover{
 }
 
 a{
+    color: blue;
     text-decoration: none;
+}
+a:visited{
+    color: blue;
+}
+
+button{
+    padding: 5px;
 }
 
 h1{

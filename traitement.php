@@ -79,18 +79,21 @@
 
             //----------------AFFICHER LE DÉTAIL D'UN PRODUIT------------------
             case "detail" :
+                /* Si on veut aller à l'accueil */
                 if(strcmp($_GET['button'], "accueil") == 0){
+                    /* Si on n'a pas de variable de session de la descritption de produit, ou bien si il est vide */
                     if((!isset($_SESSION['descriptionProduit']) || empty($_SESSION['descriptionProduit']))){
-                        header("Location:index.php");
+                        header("Location:index.php"); // On retourne juste à l'accueil
                     }
-                    else{
-                        unset($_SESSION['descriptionProduit']);
-                        header("Location:index.php");
+                    else{ // Sinon
+                        unset($_SESSION['descriptionProduit']); // On détruit la description du produit
+                        header("Location:index.php"); // On retourne à l'accueil
                     }
                 }
-                else{
-                    $_SESSION['descriptionProduit'] = "<p>Produit : " . $_SESSION['products'][$_GET['index']]['name'] . "<br>Description : " . $_SESSION['products'][$_GET['index']]['description'] . "<br></p>";
-                    header("Location:recap.php");
+                else{ // Sinon (c'est à dire qu'on clique sur un produit)
+                    $_SESSION['descriptionProduit'] = "<p>Produit : " . $_SESSION['products'][$_GET['index']]['name'] . 
+                    "<br>Description : " . $_SESSION['products'][$_GET['index']]['description'] . "<br></p>"; // On définit la variable de session de la description du produit
+                    header("Location:recap.php"); // On reste dans le recapitulatif des produits
                 }
                 break;
         }
