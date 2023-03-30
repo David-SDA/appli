@@ -15,16 +15,31 @@
                     $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                     $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT);
                     $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    if(isset($_FILES['file'])){
+                        $tmpNom = $_FILES['file']['tmp_name'];
+                        $nom = $_FILES['file']['name'];
+                        $taille = $_FILES['file']['size'];
+                        $erreur = $_FILES['file']['error'];
+                    }
+                    $tabExtension = explode('.', $nom);
+                    $extension = strtolower(end($tabExtension));
+                    $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+                    $maxTaille = 400000;
+                    if(in_array($extension, $extensions) && $taille <= $maxTaille){
+                        move_uploaded_file($tmpNom, './upload/'.$nom);
+                    }
+                    $cheminImage = "./upload/" . $nom . "." . end($tabExtension);
             
                     /* Si le filtrage a bien fonctionné */
-                    if($name && $price && $qtt && $description){
+                    if($name && $price && $qtt && $description && $cheminImage){
                         /* On crée un tableau avec tout les attributs nécessaires */
                         $product = [
                             "name" => $name,
                             "price" => $price,
                             "qtt" => $qtt,
                             "total" => $price*$qtt,
-                            "description" => $description
+                            "description" => $description,
+                            "file" => $cheminImage
                         ];
                         
                         $_SESSION['products'][] = $product; // On l'ajoute à une variable de session
@@ -91,7 +106,9 @@
                     }
                 }
                 else{ // Sinon (c'est à dire qu'on clique sur un produit)
-                    $_SESSION['descriptionProduit'] = "<p>Produit : " . $_SESSION['products'][$_GET['index']]['name'] . 
+                    $_SESSION['descriptionProduit'] = "<p>Description :
+                    <br> <img src=\"" . $_SESSION['file']/*Il faut le chemin du fichier*/ . "\" alt=\"Une image\">
+                    <br>Produit : " . $_SESSION['products'][$_GET['index']]['name'] . 
                     "<br>Description : " . $_SESSION['products'][$_GET['index']]['description'] . "<br></p>"; // On définit la variable de session de la description du produit
                     header("Location:recap.php"); // On reste dans le recapitulatif des produits
                 }

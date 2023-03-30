@@ -82,6 +82,11 @@ thead, tbody, td, th{
     border-collapse: collapse;
 }
 
+img{
+    width: 300px;
+    height: auto;
+}
+
 .nbProduit{
     margin-left: auto;
     margin-right: 20px;

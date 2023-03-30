@@ -32,7 +32,7 @@
         </header>
         <div class="contenu">   
             <h1>Ajouter un produit</h1>
-            <form action="traitement.php?action=add" method="post">
+            <form enctype="multipart/form-data" action="traitement.php?action=add" method="post">
                 <p>
                     <label>
                         Nom du produit : 
@@ -58,8 +58,15 @@
                     </label>
                 </p>
                 <p>
+                    <label>
+                        Image :
+                        <input type="file" name="file">
+                    </label>
+                </p>
+                <p>
                     <input type="submit" name="submit" value="Ajouter le produit">
                 </p>
+                
             </form>
             <p>État du dernier ajout : 
                 <?php
