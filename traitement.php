@@ -19,16 +19,16 @@
                         $tmpNom = $_FILES['file']['tmp_name']; // Le nom temporaire du fichier qui sera chargé sur la machine serveur 
                         $nom = $_FILES['file']['name']; // Le nom original du fichier
                         $taille = $_FILES['file']['size']; // Sa taille en octets
-                        $error =$_FILES['file']['error'];
+                        $error = $_FILES['file']['error']; // Le code d'erreur associé au téléchargement
                     }
                     $tabExtension = explode('.', $nom); // on scinde la chaine en enlevant le point, ça devient un tableau
                     $extension = strtolower(end($tabExtension)); // On met les caractères en minuscule
                     $extensions = ['jpg', 'png', 'jpeg', 'gif']; // Un tableau d'extension que l'on accepte
-                    $maxTaille = 400000; // Taille maximale que l'on autorise
+                    $maxTaille = 1000000; // Taille maximale que l'on autorise (1 Mo)
                     /* Si le fichier a bien une des extensions accepter et a une taille autorisé */
                     if(in_array($extension, $extensions) && $taille <= $maxTaille && $error == 0){
-                        $uniqueName = uniqid('', true);
-                        $fileUnique = $uniqueName.".".$extension;
+                        $uniqueName = uniqid('', true); // On crée un identifiant unique pour l'image
+                        $fileUnique = $uniqueName . "." . $extension;
                         move_uploaded_file($tmpNom, './upload/'.$fileUnique); // On déplace le fichier dans un dossier que l'on a créer
                         $cheminImage = "./upload/" . $fileUnique; // On stocke le chemin de l'image
                     }
