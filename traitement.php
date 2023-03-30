@@ -15,20 +15,20 @@
                     $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                     $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT);
                     $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                    if(isset($_FILES['file'])){
-                        $tmpNom = $_FILES['file']['tmp_name'];
-                        $nom = $_FILES['file']['name'];
-                        $taille = $_FILES['file']['size'];
-                        $erreur = $_FILES['file']['error'];
+                    if(isset($_FILES['file'])){ // On verifie qu'un file est bien présent
+                        $tmpNom = $_FILES['file']['tmp_name']; // Le nom temporaire du fichier qui sera chargé sur la machine serveur 
+                        $nom = $_FILES['file']['name']; // Le nom original du fichier
+                        $taille = $_FILES['file']['size']; // Sa taille en octets
                     }
-                    $tabExtension = explode('.', $nom);
-                    $extension = strtolower(end($tabExtension));
-                    $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-                    $maxTaille = 400000;
+                    $tabExtension = explode('.', $nom); // on scinde la chaine en enlevant le point, ça devient un tableau
+                    $extension = strtolower(end($tabExtension)); // On met les caractères en minuscule
+                    $extensions = ['jpg', 'png', 'jpeg', 'gif']; // Un tableau d'extension que l'on accepte
+                    $maxTaille = 400000; // Taille maximale que l'on autorise
+                    /* Si le fichier a bien une des extensions accepter et a une taille autorisé */
                     if(in_array($extension, $extensions) && $taille <= $maxTaille){
-                        move_uploaded_file($tmpNom, './upload/'.$nom);
+                        move_uploaded_file($tmpNom, './upload/'.$nom); // On déplace le fichier dans un dossier que l'on a créer
                     }
-                    $cheminImage = "./upload/" . $nom . "." . end($tabExtension);
+                    $cheminImage = "./upload/" . $nom; // On stocke le chemin de l'image
             
                     /* Si le filtrage a bien fonctionné */
                     if($name && $price && $qtt && $description && $cheminImage){
@@ -107,7 +107,7 @@
                 }
                 else{ // Sinon (c'est à dire qu'on clique sur un produit)
                     $_SESSION['descriptionProduit'] = "<p>Description :
-                    <br> <img src=\"" . $_SESSION['file']/*Il faut le chemin du fichier*/ . "\" alt=\"Une image\">
+                    <br> <img src=\"" . $_SESSION['products'][$_GET['index']]['file'] . "\" alt=\"Une image\">
                     <br>Produit : " . $_SESSION['products'][$_GET['index']]['name'] . 
                     "<br>Description : " . $_SESSION['products'][$_GET['index']]['description'] . "<br></p>"; // On définit la variable de session de la description du produit
                     header("Location:recap.php"); // On reste dans le recapitulatif des produits
