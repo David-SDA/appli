@@ -60,7 +60,7 @@
                 <p>
                     <label>
                         Image :
-                        <input type="file" name="file">
+                        <input type="file" name="file" required>
                     </label>
                 </p>
                 <p>

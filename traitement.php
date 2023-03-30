@@ -27,8 +27,8 @@
                     /* Si le fichier a bien une des extensions accepter et a une taille autorisé */
                     if(in_array($extension, $extensions) && $taille <= $maxTaille){
                         move_uploaded_file($tmpNom, './upload/'.$nom); // On déplace le fichier dans un dossier que l'on a créer
+                        $cheminImage = "./upload/" . $nom; // On stocke le chemin de l'image
                     }
-                    $cheminImage = "./upload/" . $nom; // On stocke le chemin de l'image
             
                     /* Si le filtrage a bien fonctionné */
                     if($name && $price && $qtt && $description && $cheminImage){
