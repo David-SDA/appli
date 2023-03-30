@@ -55,6 +55,7 @@ input[type=submit]{
 
 textarea{
     resize: none;
+    font-family: inherit;
     padding: 5px;
 }
 

@@ -41,6 +41,7 @@
             case "delete" :
                 unset($_SESSION['products'][$_GET['index']]); // On détruit un produit
                 $_SESSION['products'] = array_values($_SESSION['products']); // On met les index dans l'ordre
+                unset($_SESSION['descriptionProduit']); // On détruit la description du produit
                 header("Location:recap.php"); // On reste dans le recapitulatif des produits
                 break;
             
@@ -65,6 +66,7 @@
                 if($_SESSION['products'][$_GET['index']]['qtt'] == 1){ // Si il reste une quantité de 1 à un produit
                     unset($_SESSION['products'][$_GET['index']]); // On va le détruire
                     $_SESSION['products'] = array_values($_SESSION['products']); // Et on met les index dans l'ordre
+                    unset($_SESSION['descriptionProduit']); // On détruit la description du produit
                     header("Location:recap.php"); // On reste dans le recapitulatif des produits
                 }
                 else{ // La quantité est supérieur à 1, on a juste à enlever 1 à la quantité
@@ -77,6 +79,19 @@
 
             //----------------AFFICHER LE DÉTAIL D'UN PRODUIT------------------
             case "detail" :
-
+                if(strcmp($_GET['button'], "accueil") == 0){
+                    if((!isset($_SESSION['descriptionProduit']) || empty($_SESSION['descriptionProduit']))){
+                        header("Location:index.php");
+                    }
+                    else{
+                        unset($_SESSION['descriptionProduit']);
+                        header("Location:index.php");
+                    }
+                }
+                else{
+                    $_SESSION['descriptionProduit'] = "<p>Produit : " . $_SESSION['products'][$_GET['index']]['name'] . "<br>Description : " . $_SESSION['products'][$_GET['index']]['description'] . "<br></p>";
+                    header("Location:recap.php");
+                }
+                break;
         }
     }
