@@ -54,6 +54,7 @@
             
             //----------------SUPPRIMER UN PRODUIT------------------
             case "delete" :
+                unlink($_SESSION['products'][$_GET['index']]['file']); //On détruit l'image du produit
                 unset($_SESSION['products'][$_GET['index']]); // On détruit un produit
                 $_SESSION['products'] = array_values($_SESSION['products']); // On met les index dans l'ordre
                 unset($_SESSION['descriptionProduit']); // On détruit la description du produit
@@ -63,6 +64,7 @@
             //----------------VIDER LE PANIER------------------
             case "clear" :
                 foreach($_SESSION['products'] as $index=>$produit){ // Pour chaque produit dans la variable de session des produits
+                    unlink($_SESSION['products'][$index]['file']); //On détruit l'image du produit
                     unset($_SESSION['products'][$index]); // On détruit le produit
                 }
                 header("Location:index.php"); // On retourne à l'accueil
