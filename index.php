@@ -52,6 +52,12 @@
                     </label>
                 </p>
                 <p>
+                    <label>
+                        Description : 
+                        <textarea name="description" cols="60" rows="10"></textarea>
+                    </label>
+                </p>
+                <p>
                     <input type="submit" name="submit" value="Ajouter le produit">
                 </p>
             </form>
