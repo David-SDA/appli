@@ -66,6 +66,10 @@
                      "</tr>",
                     "</tbody>",
                 "</table>";
+
+                foreach($_SESSION['products'] as $index => $product){
+                    echo "Produit : " . $product['name'] . "<br>Description :" . $product['description'] . "<br>";
+                }
             }
         ?>
     </body>

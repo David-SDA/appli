@@ -55,6 +55,7 @@ input[type=submit]{
 
 textarea{
     resize: none;
+    padding: 5px;
 }
 
 table{

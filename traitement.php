@@ -14,15 +14,17 @@
                     $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                     $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                     $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT);
+                    $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             
                     /* Si le filtrage a bien fonctionné */
-                    if($name && $price && $qtt){
+                    if($name && $price && $qtt && $description){
                         /* On crée un tableau avec tout les attributs nécessaires */
                         $product = [
                             "name" => $name,
                             "price" => $price,
                             "qtt" => $qtt,
-                            "total" => $price*$qtt
+                            "total" => $price*$qtt,
+                            "description" => $description
                         ];
                         
                         $_SESSION['products'][] = $product; // On l'ajoute à une variable de session
