@@ -33,8 +33,6 @@ header a:hover{
     background-color: #917B49;
 }
 
-
-
 button{
     padding: 5px;
 }
@@ -139,7 +137,6 @@ button{
     border-radius: 10px;
     cursor: pointer;
     transition: 1s transform;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 button:hover{
     transform: scale(0.9);
@@ -174,4 +171,24 @@ img{
                 rgba(0, 0, 0, 0.12) 0px 4px 6px,
                 rgba(0, 0, 0, 0.17) 0px 12px 13px,
                 rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.boutonQuantite, .boutonDelete{
+    color: #fff;
+    display: inline-table; 
+    width: 40px;
+    height: 40px;
+    margin: 0 3px;
+    padding: 3px;
+    border: solid;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.boutonQuantite{
+    background-color: #2912fc;
+}
+
+.boutonDelete{
+    background-color: #FF2400;
 }
