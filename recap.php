@@ -74,14 +74,6 @@
                     "</tbody>",
                 "</table>";
                 echo "<a href=\"traitement.php?action=clear\"><button>Vider le panier</button></a>"; // Lien qui effectue l'action de vider le panier
-                /* Si on n'a pas de variable de session de la descritption de produit, ou bien si il est vide */
-                if((!isset($_SESSION['descriptionProduit']) || empty($_SESSION['descriptionProduit'])))
-                {
-                    echo ""; // On affiche rien
-                }
-                else{ // Sinon
-                    echo $_SESSION['descriptionProduit']; // On affiche la description du produit
-                }
             }
         ?>
     </body>

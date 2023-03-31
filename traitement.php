@@ -115,7 +115,7 @@
                     <br> <img src=\"" . $_SESSION['products'][$_GET['index']]['file'] . "\" alt=\"Une image\">
                     <br>Produit : " . $_SESSION['products'][$_GET['index']]['name'] . 
                     "<br>Description : " . $_SESSION['products'][$_GET['index']]['description'] . "<br></p>"; // On définit la variable de session de la description du produit
-                    header("Location:recap.php"); // On reste dans le recapitulatif des produits
+                    header("Location:detail.php"); // On reste dans le recapitulatif des produits
                 }
                 break;
         }
