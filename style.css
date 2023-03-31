@@ -109,7 +109,6 @@ input[type=submit]:active{
 textarea{
     resize: none;
     font-family: inherit;
-    padding: 5px;
 }
 
 table{
