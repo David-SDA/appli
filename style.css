@@ -33,9 +33,7 @@ header a:hover{
     background-color: #917B49;
 }
 
-a{
-    text-decoration: none;
-}
+
 
 button{
     padding: 5px;
@@ -113,19 +111,23 @@ textarea{
 
 table{
     color: #000;
+    margin: 20px 0;
     padding: 20px 0;
     width: 100%;
     text-align: left;
-}
-
-th, td{
-    width: 100px;
+    border-collapse: collapse;
 }
 
 thead, tbody, td, th{
     padding: 5px;
-    border: 1px solid;
-    border-collapse: collapse;
+}
+
+thead tr{
+    border-bottom: solid 1px #000;
+}
+
+tbody tr{
+    border-bottom: solid 0.5px #B2BEB5;
 }
 
 button{
