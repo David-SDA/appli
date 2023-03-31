@@ -114,11 +114,12 @@ textarea{
 table{
     color: #000;
     padding: 20px 0;
+    width: 100%;
+    text-align: left;
 }
 
 th, td{
     width: 100px;
-    text-align: center;
 }
 
 thead, tbody, td, th{
