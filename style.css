@@ -158,6 +158,16 @@ img{
     font-size: 1.17em;
 }
 
+.messageAjout{
+    display: block;
+    background-color: #228B22;
+    border: solid 1px #ccc;
+    padding: 5px;
+    position: absolute;
+    top: 70px;
+    right: 25px;
+}
+
 .contenu{
     background-color: #fff;
     width: 80%;

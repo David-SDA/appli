@@ -2,7 +2,10 @@
     session_start();
     ob_start();
     require_once "functions.php";
-    
+
+    echo "<div class='messageAjout'>",
+            "Test de message",
+        "</div>";
     echo "<h1>Ajouter un produit</h1>
             <form enctype='multipart/form-data' action='traitement.php?action=add' method='post'>
                 <p>
