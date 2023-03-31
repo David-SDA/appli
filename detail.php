@@ -1,7 +1,6 @@
 <?php
     session_start();
     ob_start();
-    // require "functions.php"
 
     /* Si on n'a pas de variable de session de la descritption de produit, ou bien si il est vide */
     if((!isset($_SESSION['descriptionProduit']) || empty($_SESSION['descriptionProduit'])))

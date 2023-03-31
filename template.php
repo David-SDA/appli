@@ -1,3 +1,6 @@
+<?php
+    require_once "functions.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,17 +22,7 @@
             <p class="nbProduit"><i class="fa fa-shopping-cart"></i>
                 <span>
                 <?php
-                    $nombreProduits = 0;
-                    /* Si on n'a pas de variable de session rassemblant les produits, ou bien si il est vide */
-                    if((!isset($_SESSION['products']) || empty($_SESSION['products']))){
-                        echo $nombreProduits; // On affiche qu'on a bien aucun produits
-                    }
-                    else{ // Sinon
-                        foreach($_SESSION['products'] as $index => $produit){ // Pour chaque produit
-                            $nombreProduits += $produit['qtt']; // On ajoute sa quantité au nombre de produits
-                        } 
-                        echo $nombreProduits; // On affiche le nombre de produits
-                    }
+                    echo getNombreProduit(); // On affiche le nombre de produits dans le panier
                 ?>
                 </span>
             </p>

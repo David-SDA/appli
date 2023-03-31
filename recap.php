@@ -1,7 +1,6 @@
 <?php
     session_start();
     ob_start();
-    // require "functions.php"
 
     /* Si on n'a pas de variable de session rassemblant les produits, ou bien si il est vide */
     if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
@@ -40,6 +39,7 @@
         "</table>";
         echo "<a href=\"traitement.php?action=clear\"><button>Vider le panier</button></a>"; // Lien qui effectue l'action de vider le panier
     }
+    
     $contenu = ob_get_clean();
     $title = "Panier";
     require "template.php";
