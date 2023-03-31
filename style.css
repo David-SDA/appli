@@ -82,7 +82,7 @@ input[type=file]{
 }
 input[type=file]::-webkit-file-upload-button{
     background-color: #d5d9dc;
-    width: 20%;
+    width: 10%;
     margin-right: 15px;
     padding: 8px 0;
     text-align: center;
@@ -92,7 +92,7 @@ input[type=file]::-webkit-file-upload-button{
 input[type=submit]{
     background-color: #228B22;
     color: #fff;
-    width: 25%;
+    width: 15%;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
@@ -158,7 +158,7 @@ img{
 
 .contenu{
     background-color: #fff;
-    width: 700px;
+    width: 80%;
     padding: 5px;
     margin: 20px auto;
     display: flex;
