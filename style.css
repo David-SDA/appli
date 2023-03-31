@@ -65,6 +65,7 @@ label{
     display: flex;
     flex-direction: column;
 }
+
 input{
     border: none;
 }
@@ -79,12 +80,16 @@ input[type=file]{
     margin: 5px 0;
 }
 input[type=submit]{
-    background-color: #917B49;
+    background-color: #228B22;
     color: #fff;
     width: 25%;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    transition: 1s transform;
+}
+input[type=submit]:hover{
+    transform: scale(0.9);
 }
 input[type=submit]:active{
     background-color: #453E30;
