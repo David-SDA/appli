@@ -127,6 +127,24 @@ thead, tbody, td, th{
     border-collapse: collapse;
 }
 
+button{
+    background-color: #FF2400;
+    color: #fff;
+    width: 155%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s transform;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+button:hover{
+    transform: scale(0.9);
+}
+button:active{
+    background-color: #453E30;
+}
+
 img{
     width: 300px;
     height: auto;
