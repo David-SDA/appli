@@ -16,6 +16,9 @@ header{
     justify-content: center;
     align-items: center;
 }
+header p{
+    color: rgb(255, 255, 255);
+}
 header a{
     color: rgb(255, 255, 255);
     display: flex;
@@ -39,14 +42,17 @@ button{
 }
 
 h1{
+    color: #000;
     padding: 10px;
 }
 
 p{
+    color: #000;
     padding: 5px;
 }
 
 form{
+    color: #000;
     margin: 5px;
 }
 
@@ -59,15 +65,29 @@ label{
     display: flex;
     flex-direction: column;
 }
-
+input{
+    border: none;
+}
 input[type=text], input[type=number], textarea{
+    background-color: #EDF2F5;
+    margin: 5px 0;
     padding: 12px 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+input[type=file]{
+    margin: 5px 0;
+}
 input[type=submit]{
-    background-color: #576B91;
-    padding: 5px;
+    background-color: #917B49;
+    color: #fff;
+    width: 25%;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+input[type=submit]:active{
+    background-color: #453E30;
 }
 
 textarea{
@@ -77,6 +97,7 @@ textarea{
 }
 
 table{
+    color: #000;
     padding: 20px 0;
 }
 
@@ -103,7 +124,7 @@ img{
 }
 
 .contenu{
-    background-color: #576B91;
+    background-color: #fff;
     width: 700px;
     padding: 5px;
     margin: 20px auto;
