@@ -112,10 +112,11 @@
                     }
                 }
                 else{ // Sinon (c'est à dire qu'on clique sur un produit)
-                    $_SESSION['descriptionProduit'] = "<img src=\"" . $_SESSION['products'][$_GET['index']]['file'] . "\" alt=\"Une image\">
-                    <br><h1><strong>" . $_SESSION['products'][$_GET['index']]['name'] . "</h1>
-                    <br><h2>" . $_SESSION['products'][$_GET['index']]['price'] . "&nbsp€</h2></strong>" .
-                    "<br><p>" . $_SESSION['products'][$_GET['index']]['description'] . "</p>"; // On définit la variable de session de la description du produit
+                    $_SESSION['descriptionProduit'] = "<div class='details'><img src=\"" . $_SESSION['products'][$_GET['index']]['file'] . "\" alt=\"Une image\">
+                    <div class='texteDetails'>
+                    <h1><strong>" . $_SESSION['products'][$_GET['index']]['name'] . "</h1>
+                    <h2>" . $_SESSION['products'][$_GET['index']]['price'] . "&nbsp€</h2></strong>" .
+                    "<p>" . $_SESSION['products'][$_GET['index']]['description'] . "</p></div></div>"; // On définit la variable de session de la description du produit
                     header("Location:detail.php"); // On reste dans le recapitulatif des produits
                 }
                 break;

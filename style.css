@@ -146,8 +146,10 @@ button:active{
 }
 
 img{
+    margin: 5px;
     width: 300px;
     height: auto;
+    border: solid 1px #B2BEB5;
 }
 
 .nbProduit{
@@ -191,4 +193,22 @@ img{
 
 .boutonDelete{
     background-color: #FF2400;
+}
+
+.details{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.texteDetails{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.texteDetails h1, .texteDetails h2{
+    border-bottom: solid 0.5px #B2BEB5;
 }

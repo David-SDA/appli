@@ -45,6 +45,6 @@
     echo "</p>";
     
     $contenu = ob_get_clean();
-    $title = "Panier";
+    $title = "Accueil";
     require "template.php";
 ?>
