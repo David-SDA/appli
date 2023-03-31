@@ -84,6 +84,7 @@
             //----------------DIMINUER LA QUANTITÉ D'UN PRODUIT------------------
             case "down-qtt" :
                 if($_SESSION['products'][$_GET['index']]['qtt'] == 1){ // Si il reste une quantité de 1 à un produit
+                    unlink($_SESSION['products'][$_GET['index']]['file']); // On détruit l'image du produit
                     unset($_SESSION['products'][$_GET['index']]); // On va le détruire
                     $_SESSION['products'] = array_values($_SESSION['products']); // Et on met les index dans l'ordre
                     unset($_SESSION['descriptionProduit']); // On détruit la description du produit
@@ -111,10 +112,10 @@
                     }
                 }
                 else{ // Sinon (c'est à dire qu'on clique sur un produit)
-                    $_SESSION['descriptionProduit'] = "<p>Description :
-                    <br> <img src=\"" . $_SESSION['products'][$_GET['index']]['file'] . "\" alt=\"Une image\">
-                    <br>Produit : " . $_SESSION['products'][$_GET['index']]['name'] . 
-                    "<br>Description : " . $_SESSION['products'][$_GET['index']]['description'] . "<br></p>"; // On définit la variable de session de la description du produit
+                    $_SESSION['descriptionProduit'] = "<img src=\"" . $_SESSION['products'][$_GET['index']]['file'] . "\" alt=\"Une image\">
+                    <br><h1><strong>" . $_SESSION['products'][$_GET['index']]['name'] . "</h1>
+                    <br><h2>" . $_SESSION['products'][$_GET['index']]['price'] . "&nbsp€</h2></strong>" .
+                    "<br><p>" . $_SESSION['products'][$_GET['index']]['description'] . "</p>"; // On définit la variable de session de la description du produit
                     header("Location:detail.php"); // On reste dans le recapitulatif des produits
                 }
                 break;
