@@ -3,9 +3,7 @@
     ob_start();
     require_once "functions.php";
 
-    echo "<div class='messageAjout'>",
-            "Test de message",
-        "</div>";
+    echo "<div class='messageAjout'>" . getAffichageConfirmation() .  "</div>";// On affiche le message de confirmation
     echo "<h1>Ajouter un produit</h1>
             <form enctype='multipart/form-data' action='traitement.php?action=add' method='post'>
                 <p>
@@ -39,13 +37,10 @@
                     </label>
                 </p>
                 <p>
-                    <input type='submit' name='submit' value='Ajouter le produit'>
+                    <input type='submit' name='submit' class='boutonAjoutProduit' value='Ajouter le produit'>
                 </p>
                 
-            </form>
-            <p>État du dernier ajout : ";
-    echo getAffichageConfirmation(); // On affiche le message de confirmation
-    echo "</p>";
+            </form>";
     
     $contenu = ob_get_clean();
     $title = "Accueil";

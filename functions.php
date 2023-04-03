@@ -14,8 +14,8 @@
     /* Fonction pour obtenir l'affichage de la confirmation de l'action de mettre un produit dans le panier */
     function getAffichageConfirmation(){
         $result = "";
-        /* Si on a  de variable de session pour le message de confirmation, ou bien si il n'est vide */
-        if( !isset($_SESSION['message']) || !empty($_SESSION['message']) ){
+        /* Si on a une variable de session pour le message de confirmation, ou bien si il n'est vide */
+        if( isset($_SESSION['message']) || !empty($_SESSION['message']) ){
             $result .= $_SESSION['message'];
         }
         return $result;

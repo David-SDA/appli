@@ -46,10 +46,10 @@
                         ];
                         
                         $_SESSION['products'][] = $product; // On l'ajoute à une variable de session
-                        $_SESSION['message'] = "Réussi !"; // On crée une variable de session pour le message de réussite de l'opération
+                        $_SESSION['message'] = "Ajout réussi !"; // On crée une variable de session pour le message de réussite de l'opération
                     }
                     else{
-                        $_SESSION['message'] = "Échec !"; // On crée une variable de session pour le message d'échec de l'opération
+                        $_SESSION['message'] = "Échec de l'ajout !"; // On crée une variable de session pour le message d'échec de l'opération
                     }
                 }
                 header("Location:index.php"); // On reste à l'accueil 
