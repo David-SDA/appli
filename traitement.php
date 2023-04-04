@@ -100,25 +100,12 @@
 
             //----------------AFFICHER LE DÉTAIL D'UN PRODUIT------------------
             case "detail" :
-                /* Si on veut aller à l'accueil */
-                if(strcmp($_GET['button'], "accueil") == 0){
-                    /* Si on n'a pas de variable de session de la descritption de produit, ou bien si il est vide */
-                    if((!isset($_SESSION['descriptionProduit']) || empty($_SESSION['descriptionProduit']))){
-                        header("Location:index.php"); // On retourne juste à l'accueil
-                    }
-                    else{ // Sinon
-                        unset($_SESSION['descriptionProduit']); // On détruit la description du produit
-                        header("Location:index.php"); // On retourne à l'accueil
-                    }
-                }
-                else{ // Sinon (c'est à dire qu'on clique sur un produit)
-                    $_SESSION['descriptionProduit'] = "<div class='details'><img src=\"" . $_SESSION['products'][$_GET['index']]['file'] . "\" alt=\"Une image\">
-                    <div class='texteDetails'>
-                    <h1><strong>" . $_SESSION['products'][$_GET['index']]['name'] . "</h1>
-                    <h2>" . number_format($_SESSION['products'][$_GET['index']]['price'], 2, ".", "&nbsp;") . "&nbsp€</h2></strong>" .
-                    "<p>" . $_SESSION['products'][$_GET['index']]['description'] . "</p></div></div>"; // On définit la variable de session de la description du produit
-                    header("Location:detail.php"); // On reste dans le recapitulatif des produits
-                }
+                $_SESSION['descriptionProduit'] = "<div class='details'><img src=\"" . $_SESSION['products'][$_GET['index']]['file'] . "\" alt=\"Une image\">
+                <div class='texteDetails'>
+                <h1><strong>" . $_SESSION['products'][$_GET['index']]['name'] . "</h1>
+                <h2>" . number_format($_SESSION['products'][$_GET['index']]['price'], 2, ".", "&nbsp;") . "&nbsp€</h2></strong>" .
+                "<p>" . $_SESSION['products'][$_GET['index']]['description'] . "</p></div></div>"; // On définit la variable de session de la description du produit
+                header("Location:recap.php"); // On reste dans le recapitulatif des produits
                 break;
         }
     }
