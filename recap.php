@@ -46,26 +46,25 @@ if (!isset($_SESSION['products']) || empty($_SESSION['products'])) {
 ?>
 
 <?php
-if ((isset($_SESSION['descriptionProduit']) || !empty($_SESSION['descriptionProduit']))) {
+if ((isset($_SESSION['descriptionProduit']) || !empty($_SESSION['descriptionProduit']))) { // Quand on définit la description du produit
 ?>
-
+    <!-- On fait l'affichage de la partie modal qui contiendra les informations du produit -->
     <div class="modal" style="display:block">
         <div class="contenuModal">
             <span class="fermer">&times;</span>
-            <?= $_SESSION['descriptionProduit'] ?>
+            <?= $_SESSION['descriptionProduit'] // On affiche dans la boîte modale les détails du produit en question ?>
 
         </div>
     </div>
 
 <?php
-
-unset($_SESSION['descriptionProduit']);
+    unset($_SESSION['descriptionProduit']); // On le détruit ensuite, ça permet d'éviter de l'afficher lors du chargement de la page
 }
-
 ?>
 
-<?php
 
+
+<?php
 $contenu = ob_get_clean();
 $title = "Panier";
 require "template.php";
