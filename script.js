@@ -1,5 +1,4 @@
 let messageAjout = document.querySelector('.messageAjout'); // On a la boîte du message
-let boutonAjoutProduit = document.querySelector('.boutonAjoutProduit'); // On a le bouton d'ajout de produit
 
 window.addEventListener("load", function(){ // Lorsque la page va se charger
     if(messageAjout.innerHTML){
@@ -12,7 +11,7 @@ window.addEventListener("load", function(){ // Lorsque la page va se charger
 
 let boutonDetails = document.querySelector('.afficherDetails')
 let modal = document.querySelector('.modal');
-let fermer = document.querySelector('.fermer')[0];
+let fermer = document.querySelector('.fermer');
 
 boutonDetails.onclick = function(){
     modal.style.display = "block";
