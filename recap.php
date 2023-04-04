@@ -28,7 +28,7 @@
                     "<td><a href=\"traitement.php?action=detail&index=$index&button=produit\">".$product['name']."</a></td>",
                     "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€"."</td>",
                         // Ci-dessous, le lien pour enlever de la quantité au produit                       Ainsi que pour en ajouter
-                    "<td><a href=\"traitement.php?action=down-qtt&index=$index\"><button class='boutonQuantite'>-</button></a>".$product['qtt']."<a href=\"traitement.php?action=up-qtt&index=$index\"><button class='boutonQuantite'>+</button></a></td>",
+                    "<td class='caseQuantite'><a href=\"traitement.php?action=down-qtt&index=$index\"><button class='boutonQuantite moins'>-</button></a>".$product['qtt']."<a href=\"traitement.php?action=up-qtt&index=$index\"><button class='boutonQuantite plus'>+</button></a></td>",
                     "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€"."</td>",
                     // Ci-dessous, le lien pour supprimer le produit
                     "<td><a href=\"traitement.php?action=delete&index=$index\"><button class='boutonDelete'><i class='fa fa-trash' aria-hidden='true'></i></button></a></td>",

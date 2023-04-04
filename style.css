@@ -131,7 +131,7 @@ tbody tr{
 }
 
 button{
-    background-color: #FF2400;
+    background-color: #b51a1a;
     color: #fff;
     width: 10%;
     padding: 10px;
@@ -206,24 +206,38 @@ img{
                 rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.caseQuantite{
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
 .boutonQuantite, .boutonDelete{
-    color: #fff;
-    display: inline-table; 
     width: 40px;
-    height: 40px;
-    margin: 0 3px;
-    padding: 3px;
-    border: solid;
-    border-radius: 5px;
+    font-size: 200%;
     text-align: center;
 }
 
+
 .boutonQuantite{
-    background-color: #2912fc;
+    border-radius: 50%;
+    height: 40px;
+}
+.boutonQuantite:hover{
+    transform: scale();
+}
+.boutonQuantite.moins{
+    background-color: #b51a1a;
+}
+.boutonQuantite.plus{
+    background-color: #228B22;
 }
 
 .boutonDelete{
-    background-color: #FF2400;
+    background-color: #fff;
+    color: #b51a1a;
+    border: none;
+    font-size: 2em;
 }
 
 .details{
