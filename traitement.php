@@ -52,7 +52,7 @@
                         $_SESSION['message'] = "Échec de l'ajout !"; // On crée une variable de session pour le message d'échec de l'opération
                     }
                 }
-                header("Location:index.php"); // On reste à l'accueil 
+                header("Location:index.php"); // On reste à l'accueil
                 break;
             
             //----------------SUPPRIMER UN PRODUIT------------------
@@ -115,7 +115,7 @@
                     $_SESSION['descriptionProduit'] = "<div class='details'><img src=\"" . $_SESSION['products'][$_GET['index']]['file'] . "\" alt=\"Une image\">
                     <div class='texteDetails'>
                     <h1><strong>" . $_SESSION['products'][$_GET['index']]['name'] . "</h1>
-                    <h2>" . $_SESSION['products'][$_GET['index']]['price'] . "&nbsp€</h2></strong>" .
+                    <h2>" . number_format($_SESSION['products'][$_GET['index']]['price'], 2, ".", "&nbsp;") . "&nbsp€</h2></strong>" .
                     "<p>" . $_SESSION['products'][$_GET['index']]['description'] . "</p></div></div>"; // On définit la variable de session de la description du produit
                     header("Location:detail.php"); // On reste dans le recapitulatif des produits
                 }

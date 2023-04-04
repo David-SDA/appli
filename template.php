@@ -30,9 +30,13 @@
         <div id="emballage">
             <main class ="contenu">
                 <!-- Injection du contenu -->
+                <?php
+                    if(isset($_SESSION['message'])){
+                        unset($_SESSION['message']);
+                    }
+                ?>
                 <?= $contenu ?>
             </main>
         </div>
-        <script src="script.js"></script>
     </body>
 </html>

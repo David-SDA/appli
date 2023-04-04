@@ -33,7 +33,7 @@
                 <p>
                     <label>
                         Image :
-                        <input type='file' name='file' required>
+                        <input type='file' name='file'>
                     </label>
                 </p>
                 <p>
@@ -41,7 +41,7 @@
                 </p>
                 
             </form>";
-    
+    echo "<script src='script.js'></script>";
     $contenu = ob_get_clean();
     $title = "Accueil";
     require "template.php";
