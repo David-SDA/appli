@@ -154,10 +154,25 @@ img{
     border: solid 1px #B2BEB5;
 }
 
-.nbProduit{
+.panier{
     position: absolute;
-    right: 25px;
-    font-size: 1.17em;
+    right: 2%;
+    font-size: 2em;
+}
+
+.caddie{    
+    position: absolute;
+}
+
+.nombreProduit{
+    font-size: 0.60em;
+    background-color: #FF7518;
+    position: relative;
+    padding: 3px 5px;
+    left: 15px;
+    top: -12px;
+    border-radius: 50%;
+    opacity: 0.9;
 }
 
 .messageAjout{

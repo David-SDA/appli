@@ -19,14 +19,13 @@
             <a href="recap.php">
                 <h3>RÉCAPITULATIF</h3>
             </a>
-            <a href="recap.php" class="nbProduit">
-                <p><i class="fa fa-shopping-cart"></i>
-                    <span>
+            <a href="recap.php" class="panier">
+                <span class="caddie"><i class="fa fa-shopping-cart"></i></span>
+                <span class="nombreProduit">
                     <?php
                         echo getNombreProduit(); // On affiche le nombre de produits dans le panier
                     ?>
-                    </span>
-                </p>
+                </span>
             </a>
         </header>
         <div id="emballage">
