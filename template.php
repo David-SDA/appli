@@ -19,13 +19,15 @@
             <a href="recap.php">
                 <h3>RÉCAPITULATIF</h3>
             </a>
-            <p class="nbProduit"><i class="fa fa-shopping-cart"></i>
-                <span>
-                <?php
-                    echo getNombreProduit(); // On affiche le nombre de produits dans le panier
-                ?>
-                </span>
-            </p>
+            <a href="recap.php" class="nbProduit">
+                <p><i class="fa fa-shopping-cart"></i>
+                    <span>
+                    <?php
+                        echo getNombreProduit(); // On affiche le nombre de produits dans le panier
+                    ?>
+                    </span>
+                </p>
+            </a>
         </header>
         <div id="emballage">
             <main class ="contenu">
@@ -38,5 +40,6 @@
                 <?= $contenu ?>
             </main>
         </div>
+        <script src='script.js'></script>
     </body>
 </html>
