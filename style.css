@@ -108,6 +108,7 @@ textarea{
 }
 
 table{
+    table-layout: fixed;
     color: #000;
     margin: 20px 0;
     padding: 20px 0;
@@ -118,6 +119,7 @@ table{
 
 thead, tbody, td, th{
     padding: 5px;
+    overflow-wrap: anywhere;
 }
 
 thead tr{
@@ -222,6 +224,7 @@ img{
     height: auto;
     display: flex;
     flex-direction: column;
+    overflow-wrap: anywhere;
 }
 .texteDetails h1, .texteDetails h2{
     border-bottom: solid 0.5px #B2BEB5;
