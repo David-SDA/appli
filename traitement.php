@@ -57,6 +57,7 @@
             
             //----------------SUPPRIMER UN PRODUIT------------------
             case "delete" :
+                $_SESSION['messageSuppression'] = "Le produit '" . $_SESSION['products'][$_GET['index']]['name'] . "' a été retiré !"; // On recupère le nom du produit supprimé
                 unlink($_SESSION['products'][$_GET['index']]['file']); //On détruit l'image du produit
                 unset($_SESSION['products'][$_GET['index']]); // On détruit un produit
                 $_SESSION['products'] = array_values($_SESSION['products']); // On met les index dans l'ordre
@@ -84,6 +85,7 @@
             //----------------DIMINUER LA QUANTITÉ D'UN PRODUIT------------------
             case "down-qtt" :
                 if($_SESSION['products'][$_GET['index']]['qtt'] == 1){ // Si il reste une quantité de 1 à un produit
+                    $_SESSION['messageSuppression'] = "Le produit '" . $_SESSION['products'][$_GET['index']]['name'] . "' a été retiré !"; // On recupère le nom du produit supprimé
                     unlink($_SESSION['products'][$_GET['index']]['file']); // On détruit l'image du produit
                     unset($_SESSION['products'][$_GET['index']]); // On va le détruire
                     $_SESSION['products'] = array_values($_SESSION['products']); // Et on met les index dans l'ordre

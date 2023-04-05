@@ -9,6 +9,17 @@ window.addEventListener("load", function(){ // Lorsque la page va se charger
     }
 })
 
+let messageSuppression = document.querySelector('.messageSuppression');
+
+window.addEventListener("load", function(){ // Lorsque la page va se charger
+    if(messageSuppression.innerHTML){
+        messageSuppression.classList.add("afficher"); // On ajoute la classe afficher pour rendre la boîte visible
+        setTimeout(function(){
+            messageSuppression.classList.remove("afficher"); // 1 seconde plus tard, on l'enlève pour la faire disparaître
+        }, 1000);
+    }
+})
+
 let boutonDetails = document.querySelector('.afficherDetails'); // On récupère le lien pour afficher l'image
 let modal = document.querySelector('.modal'); // On récupère la partie modal
 let fermer = document.querySelector('.fermer'); // On récupère ce qui permet de fermer la partie modal

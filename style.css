@@ -294,3 +294,24 @@ img{
 .texteDetails h1, .texteDetails h2{
     border-bottom: solid 0.5px #B2BEB5;
 }
+
+.messageSuppression{
+    display: none;
+    background-color: #b51a1a;
+    margin: 20px auto;
+    padding: 5px;
+    position: absolute;
+    top: 70px;
+    right: 25px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+                rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                rgba(0, 0, 0, 0.12) 0px 4px 6px,
+                rgba(0, 0, 0, 0.17) 0px 12px 13px,
+                rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transition: display 1s;
+}
+
+.messageSuppression.afficher{
+    display: block;
+}

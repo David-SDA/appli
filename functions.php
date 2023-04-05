@@ -20,4 +20,14 @@
         }
         return $result;
     }
+
+    function getAffichageSuppression(){
+        if( isset($_SESSION['messageSuppression']) || !empty($_SESSION['messageSuppression']) ){
+            $result = $_SESSION['messageSuppression'];
+            unset($_SESSION['messageSuppression']);
+
+            return $result;
+        }
+        return false;
+    }
 ?>

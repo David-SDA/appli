@@ -63,7 +63,7 @@
     }
 ?>
 
-
+    <div class='messageSuppression'><?= getAffichageSuppression(); ?></div>
 
 <?php
     $contenu = ob_get_clean();
