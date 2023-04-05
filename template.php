@@ -32,7 +32,7 @@
             <main class ="contenu">
                 <!-- Injection du contenu -->
                 <?php
-                    if(isset($_SESSION['message'])){
+                    if( isset($_SESSION['message']) ){
                         unset($_SESSION['message']);
                     }
                 ?>

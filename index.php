@@ -2,7 +2,7 @@
     session_start();
     ob_start();
     require_once "functions.php";
-    ?>
+?>
     <div class='messageAjout'><?= getAffichageConfirmation() ?></div>; <!-- On affiche le message de confirmation -->
     <h1>Ajouter un produit</h1>
     <form enctype='multipart/form-data' action='traitement.php?action=add' method='post'>
@@ -41,7 +41,7 @@
         </p>     
     </form>
 
-    <?php
+<?php
     $contenu = ob_get_clean();
     $title = "Accueil";
     require "template.php";
