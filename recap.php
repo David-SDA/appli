@@ -4,35 +4,39 @@
     require_once("functions.php");
 
     /* Si on n'a pas de variable de session rassemblant les produits, ou bien si il est vide */
-    if (!isset($_SESSION['products']) || empty($_SESSION['products'])) {
+    if ( !isset($_SESSION['products']) || empty($_SESSION['products']) ) {
         echo "<p>Aucun produit en session...</p>"; // On affiche qu'on a bien aucun produit en session
     }
     else{ // Sinon, on crée un tableau pour le panier
-        echo "<table>",
-        "<thead>",
-            "<tr>",
-                "<th>#</th>",
-                "<th>Nom</th>",
-                "<th>Prix</th>",
-                "<th>Quantité</th>",
-                "<th>Total</th>",
-                "<th>Actions</th>",
-            "</tr>",
-        "</thead>",
-        "<tbody>";
+?>        
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+<?php
         $totalGeneral = 0; // Création d'une variable pour avoir le total du panier
         foreach ($_SESSION['products'] as $index => $product) { // Pour chaque produit, on les insère a la suite du tableau
-            echo "<tr>",
-            "<td>" . $index . "</td>",
-            // Ci-dessous, le lien pour afficher les détails du produit
-            "<td><a class='afficherDetails' href=\"traitement.php?action=detail&index=$index\">" . $product['name'] . "</a></td>",
-            "<td>" . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€" . "</td>",
-            // Ci-dessous, le lien pour enlever de la quantité au produit                       Ainsi que pour en ajouter
-            "<td class='caseQuantite'><a href=\"traitement.php?action=down-qtt&index=$index\"><button class='boutonQuantite moins'>-</button></a> " . $product['qtt'] . " <a href=\"traitement.php?action=up-qtt&index=$index\"><button class='boutonQuantite plus'>+</button></a></td>",
-            "<td>" . number_format($product['total'], 2, ",", "&nbsp;") . "&nbsp;€" . "</td>",
-            // Ci-dessous, le lien pour supprimer le produit
-            "<td><a href=\"traitement.php?action=delete&index=$index\"><button class='boutonDelete'><i class='fa fa-trash' aria-hidden='true'></i></button></a></td>",
-            "</tr>";
+?>            
+            <tr>
+                <td><?= $index ?></td>
+                    <!-- Ci-dessous, le lien pour afficher les détails du produit -->
+                <td><a class='afficherDetails' href="traitement.php?action=detail&index=$index"><?= $product['name'] ?></a></td>
+                <td><?= number_format($product['price'], 2, ",", "&nbsp;") ?>&nbsp;€</td>
+                    <!-- Ci-dessous, le lien pour enlever de la quantité au produit                                                                                                                                             Ainsi que pour en ajouter -->
+                <td class='caseQuantite'><a href="traitement.php?action=down-qtt&index=$index"><button class='boutonQuantite moins'>-</button></a><?= $product['qtt'] ?><a href="traitement.php?action=up-qtt&index=$index"><button class='boutonQuantite plus'>+</button></a></td>
+                <td><?= number_format($product['total'], 2, ",", "&nbsp;") ?>&nbsp;€</td>
+                    <!-- Ci-dessous, le lien pour supprimer le produit -->
+                <td><a href="traitement.php?action=delete&index=$index"><button class='boutonDelete'><i class='fa fa-trash' aria-hidden='true'></i></button></a></td>
+            </tr>
+<?php
             $totalGeneral += $product['total']; // Le total de chaque produit est ajouté au total final
         }
         echo "<tr>",
