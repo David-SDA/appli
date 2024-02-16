@@ -57,9 +57,9 @@
             
             //----------------SUPPRIMER UN PRODUIT------------------
             case "delete" :
-                $_SESSION['messageSuppression'] = "Le produit '" . $_SESSION['products'][$_GET['index']]['name'] . "' a été retiré !"; // On recupère le nom du produit supprimé
-                unlink($_SESSION['products'][$_GET['index']]['file']); //On détruit l'image du produit
-                unset($_SESSION['products'][$_GET['index']]); // On détruit un produit
+                $_SESSION['messageSuppression'] = "Le produit '" . $_SESSION['products'][intval($_GET['index'])]['name'] . "' a été retiré !"; // On recupère le nom du produit supprimé
+                unlink($_SESSION['products'][intval($_GET['index'])]['file']); //On détruit l'image du produit
+                unset($_SESSION['products'][intval($_GET['index'])]); // On détruit un produit
                 $_SESSION['products'] = array_values($_SESSION['products']); // On met les index dans l'ordre
                 unset($_SESSION['descriptionProduit']); // On détruit la description du produit
                 header("Location:recap.php"); // On reste dans le recapitulatif des produits
@@ -76,37 +76,37 @@
             
             //----------------AUGMENTER LA QUANTITÉ D'UN PRODUIT------------------
             case "up-qtt" :
-                $_SESSION['products'][$_GET['index']]['qtt']++; // La quantité du produit concerné est augmentée
-                $_SESSION['products'][$_GET['index']]['total'] += $_SESSION['products'][$_GET['index']]['price']; // Donc son prix total l'est aussi
-                $totalGeneral += $_SESSION['products'][$_GET['index']]['price']; // Ainsi que le total de tout les produits
+                $_SESSION['products'][intval($_GET['index'])]['qtt']++; // La quantité du produit concerné est augmentée
+                $_SESSION['products'][intval($_GET['index'])]['total'] += $_SESSION['products'][intval($_GET['index'])]['price']; // Donc son prix total l'est aussi
+                $totalGeneral += $_SESSION['products'][intval($_GET['index'])]['price']; // Ainsi que le total de tout les produits
                 header("Location:recap.php"); // On reste dans le recapitulatif des produits
                 break;
             
             //----------------DIMINUER LA QUANTITÉ D'UN PRODUIT------------------
             case "down-qtt" :
-                if($_SESSION['products'][$_GET['index']]['qtt'] == 1){ // Si il reste une quantité de 1 à un produit
-                    $_SESSION['messageSuppression'] = "Le produit '" . $_SESSION['products'][$_GET['index']]['name'] . "' a été retiré !"; // On recupère le nom du produit supprimé
-                    unlink($_SESSION['products'][$_GET['index']]['file']); // On détruit l'image du produit
-                    unset($_SESSION['products'][$_GET['index']]); // On va le détruire
+                if($_SESSION['products'][intval($_GET['index'])]['qtt'] == 1){ // Si il reste une quantité de 1 à un produit
+                    $_SESSION['messageSuppression'] = "Le produit '" . $_SESSION['products'][intval($_GET['index'])]['name'] . "' a été retiré !"; // On recupère le nom du produit supprimé
+                    unlink($_SESSION['products'][intval($_GET['index'])]['file']); // On détruit l'image du produit
+                    unset($_SESSION['products'][intval($_GET['index'])]); // On va le détruire
                     $_SESSION['products'] = array_values($_SESSION['products']); // Et on met les index dans l'ordre
                     unset($_SESSION['descriptionProduit']); // On détruit la description du produit
                     header("Location:recap.php"); // On reste dans le recapitulatif des produits
                 }
                 else{ // La quantité est supérieur à 1, on a juste à enlever 1 à la quantité
-                    $_SESSION['products'][$_GET['index']]['qtt']--; // La quantité du produit concerné est diminuée 
-                    $_SESSION['products'][$_GET['index']]['total'] -= $_SESSION['products'][$_GET['index']]['price']; // Donc son prix total l'est aussi
-                    $totalGeneral -= $_SESSION['products'][$_GET['index']]['price'];// Ainsi que le total de tout les produits
+                    $_SESSION['products'][intval($_GET['index'])]['qtt']--; // La quantité du produit concerné est diminuée 
+                    $_SESSION['products'][intval($_GET['index'])]['total'] -= $_SESSION['products'][intval($_GET['index'])]['price']; // Donc son prix total l'est aussi
+                    $totalGeneral -= $_SESSION['products'][intval($_GET['index'])]['price'];// Ainsi que le total de tout les produits
                     header("Location:recap.php"); // On reste dans le recapitulatif des produits
                 }
                 break;
 
             //----------------AFFICHER LE DÉTAIL D'UN PRODUIT------------------
             case "detail" :
-                $_SESSION['descriptionProduit'] = "<div class='details'><img src=\"" . $_SESSION['products'][$_GET['index']]['file'] . "\" alt=\"Une image\">
+                $_SESSION['descriptionProduit'] = "<div class='details'><img src=\"" . $_SESSION['products'][intval($_GET['index'])]['file'] . "\" alt=\"Une image\">
                 <div class='texteDetails'>
-                <h1><strong>" . $_SESSION['products'][$_GET['index']]['name'] . "</h1>
-                <h2>" . number_format($_SESSION['products'][$_GET['index']]['price'], 2, ".", "&nbsp;") . "&nbsp€</h2></strong>" .
-                "<p>" . $_SESSION['products'][$_GET['index']]['description'] . "</p></div></div>"; // On définit la variable de session de la description du produit
+                <h1><strong>" . $_SESSION['products'][intval($_GET['index'])]['name'] . "</h1>
+                <h2>" . number_format($_SESSION['products'][intval($_GET['index'])]['price'], 2, ".", "&nbsp;") . "&nbsp€</h2></strong>" .
+                "<p>" . $_SESSION['products'][intval($_GET['index'])]['description'] . "</p></div></div>"; // On définit la variable de session de la description du produit
                 header("Location:recap.php"); // On reste dans le recapitulatif des produits
                 break;
         }
